@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/task")
 @RequiredArgsConstructor
 public class TaskControllerTest {
-    private final TaskService taskService;
+   /* private final TaskService taskService;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getTask(@PathVariable Long id) {
@@ -43,5 +43,5 @@ public class TaskControllerTest {
     @GetMapping("/todo/{todoId}")
     public ResponseEntity<?> getByToDoId(@PathVariable long todoId) {
         return ResponseEntity.ok(taskService.getByToDoId(todoId));
-    }
+    }*/
 }

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do Info</title>
+</head>
+<body>
+<h1>To-Do Info</h1>
+<p>Name: ${todo.name}</p>
+<p>Description: ${todo.description}</p>
+<a href="/todo/{todo.id}/update">Update</a>
+<form action="/todo/{todo.id}/delete" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit">Delete To-Do</button>
+</form>
+</body>
+</html>

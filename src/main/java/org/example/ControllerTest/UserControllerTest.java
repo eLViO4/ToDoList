@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 @RequiredArgsConstructor
 public class UserControllerTest {
-    private final UserService userService;
+    /*private final UserService userService;
 
     @PostMapping("/create")
     public void createUser(@RequestBody User user) {
@@ -42,6 +42,6 @@ public class UserControllerTest {
     @GetMapping("/getAll")
     public ResponseEntity<?> getAllUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
-    }
+    }*/
 }
 

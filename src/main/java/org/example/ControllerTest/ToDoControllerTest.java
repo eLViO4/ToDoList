@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/todo")
 @RequiredArgsConstructor
 public class ToDoControllerTest {
-    private final ToDoService toDoService;
+    /*private final ToDoService toDoService;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getToDo(@PathVariable long id) {
@@ -43,5 +43,5 @@ public class ToDoControllerTest {
     @GetMapping("/user/{userId}")
     public ResponseEntity<?> getByUserId(@PathVariable long userId) {
         return ResponseEntity.ok(toDoService.getByUserId(userId));
-    }
+    }*/
 }

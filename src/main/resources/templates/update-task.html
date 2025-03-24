@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Task</title>
+</head>
+<body>
+<h1>Update Task</h1>
+<form action="/task/{id}/update" method="post">
+    <input type="hidden" name="_method" value="PUT">
+    <label for="name">Task Name:</label>
+    <input type="text" id="name" name="name" value="${task.name}" required><br><br>
+
+    <label for="description">Task Description:</label>
+    <input type="text" id="description" name="description" value="${task.description}"><br><br>
+
+    <label for="priority">Priority:</label>
+    <select name="priority" id="priority">
+        <option value="LOW" th:selected="${task.priority == 'LOW'}">Low</option>
+        <option value="MEDIUM" th:selected="${task.priority == 'MEDIUM'}">Medium</option>
+        <option value="HIGH" th:selected="${task.priority == 'HIGH'}">High</option>
+
+    </select><br><br>
+
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All To-Do Tasks</title>
+</head>
+<body>
+<h1>All Tasks for To-Do</h1>
+<ul>
+    <th:block th:each="task : ${tasks}">
+        <li><a href="/task/{task.id}">${task.name}</a></li>
+    </th:block>
+</ul>
+</body>
+</html>
