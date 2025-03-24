@@ -1,0 +1,100 @@
+---------------------------TASK---------------------------
+
+Method: getTask
+http://localhost:8080/task/?
+
+Method: createTask
+http://localhost:8080/task/create
+
+{
+  "name": "task1",
+  "priority": "LOW",
+  "toDo":  { "id": 1 }
+}
+
+Method: updateTask
+http://localhost:8080/task/?/update
+
+{
+  "name": "task2",
+  "priority": "MEDIUM",
+  "toDo":  { "id": 2 }
+}
+
+
+Method: deleteTask
+http://localhost:8080/task/?/delete
+
+Method: getAllTasks
+http://localhost:8080/task/getAll
+
+---------------------------TODO---------------------------
+
+Method: getByToDoId
+http://localhost:8080/task/todo/{todoId}
+
+Method: getToDo
+http://localhost:8080/todo/?
+
+Method: createToDo
+http://localhost:8080/todo/create
+
+{
+    "title": "Todo1",
+    "owner": { "id": 1 }
+}
+
+
+Method: updateToDo
+http://localhost:8080/todo/?/update
+
+{
+    "title": "Todo2",
+    "owner": { "id": 2 }
+}
+
+Method: deleteToDo
+http://localhost:8080/todo/?/delete
+
+Method: getAll
+http://localhost:8080/todo/getAll
+
+Method: getByUserId
+http://localhost:8080/todo/user/{userId}
+
+---------------------------USER---------------------------
+
+Method: createUser
+http://localhost:8080/user/create
+
+{
+  "firstname": "Valerii",
+  "lastname": "Liubimyi",
+  "email": "lvo@gmail.com",
+  "password": "Password123!",
+  "role": "USER"
+}
+
+Method: getUserById
+http://localhost:8080/user/?
+
+Method: updateUser
+http://localhost:8080/user/?/update
+
+{
+  "firstname": "ValeriiUpdate",
+  "lastname": "LiubimyiUpdate",
+  "email": "lvoUpdate@gmail.com",
+  "password": "Password123!Update",
+  "role": "ADMIN"
+}
+
+Method: deleteUser
+http://localhost:8080/user/?/delete
+
+Method: getUserByEmail
+http://localhost:8080/user/getByEmail?email=?
+
+Method: getAllUsers
+http://localhost:8080/user/getAll
+
