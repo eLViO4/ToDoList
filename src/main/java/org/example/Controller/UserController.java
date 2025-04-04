@@ -5,6 +5,7 @@ import org.example.Entity.User;
 import org.example.Service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -35,6 +36,7 @@ public class UserController {
         return "create-user";
     }
 
+    @PreAuthorize("hasRole('ADMIN') or #id == authentication.principal.id")
     @GetMapping("/{id}")
     public String getUserById(@PathVariable long id, Model model) {
         Optional<User> user = userService.readById(id);
@@ -45,6 +47,7 @@ public class UserController {
         return "redirect:/not-found";
     }
 
+    @PreAuthorize("hasRole('ADMIN') or #id == authentication.principal.id")
     @PutMapping("/{id}/update")
     public String updateUser(@PathVariable long id, @ModelAttribute User user) {
         try {
@@ -56,6 +59,7 @@ public class UserController {
         }
     }
 
+    @PreAuthorize("hasRole('ADMIN') or #id == authentication.principal.id")
     @DeleteMapping("/{id}/delete")
     public String deleteUser(@PathVariable long id) {
         try {
@@ -66,6 +70,7 @@ public class UserController {
         }
     }
 
+    @PreAuthorize("hasRole('ADMIN') or #id == authentication.principal.id")
     @GetMapping("/getByEmail")
     public String getUserByEmail(@RequestParam String email, Model model) {
         User user = userService.getByEmail(email);
@@ -76,6 +81,7 @@ public class UserController {
         return "redirect:/not-found";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/getAll")
     public String getAllUsers(Model model) {
         List<User> users = userService.getAllUsers();
