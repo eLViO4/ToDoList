@@ -70,7 +70,7 @@ public class UserController {
         }
     }
 
-    @PreAuthorize("hasRole('ADMIN') or #id == authentication.principal.id")
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/getByEmail")
     public String getUserByEmail(@RequestParam String email, Model model) {
         User user = userService.getByEmail(email);
