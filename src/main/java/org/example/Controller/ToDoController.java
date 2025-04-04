@@ -40,6 +40,17 @@ public class ToDoController {
         }
     }
 
+    @GetMapping("/create/{id}")
+    public String createForm(@PathVariable long id, Model model) {
+        Optional<ToDo> toDo = toDoService.readById(id);
+        if (toDo.isPresent()) {
+            model.addAttribute("toDo", toDo.get());
+            return "todo-info";  // Возвращаем шаблон с данными
+        }
+        return "redirect:/not-found";
+    }
+
+
     @PutMapping("/{id}/update")
     public String updateToDo(@PathVariable long id, @ModelAttribute ToDo toDo) {
         try {
@@ -65,14 +76,14 @@ public class ToDoController {
     public String getAll(Model model) {
         List<ToDo> toDos = toDoService.getAll();
         model.addAttribute("toDos", toDos);
-        return "todo-lists";
+        return "all-user-todos";
     }
 
     @GetMapping("/user/{userId}")
     public String getByUserId(@PathVariable long userId, Model model) {
         List<ToDo> toDos = toDoService.getByUserId(userId);
         model.addAttribute("todos", toDos);
-        return "todos-user";
+        return "todo-info";
     }
 
 }

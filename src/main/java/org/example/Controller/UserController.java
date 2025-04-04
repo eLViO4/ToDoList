@@ -20,13 +20,19 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/create")
-    public String createUser(@ModelAttribute User user) {
+    public String createUser(@ModelAttribute("user") User user) {
         try {
             userService.createUser(user);
             return "redirect:/user/getAll";
         } catch (Exception e) {
-            return "redirect:/error";
+            return "error";
         }
+    }
+
+    @GetMapping("/create")
+    public String showCreateUserForm(Model model) {
+        model.addAttribute("user", new User());
+        return "create-user";
     }
 
     @GetMapping("/{id}")
@@ -74,7 +80,7 @@ public class UserController {
     public String getAllUsers(Model model) {
         List<User> users = userService.getAllUsers();
         model.addAttribute("users", users);
-        return "/users-list";
+        return "all-users";
     }
 
 }

@@ -24,7 +24,7 @@ public class TaskController {
         try {
             Task task = taskService.findTaskById(id);
             model.addAttribute("task", task);
-            return "todo-tasks";
+            return "task-info";
         } catch (Exception e) {
             return "redirect:/not-found";
         }
@@ -34,7 +34,7 @@ public class TaskController {
     public String createTask(@ModelAttribute Task task) {
         try {
             taskService.createTask(task);
-            return "redirect:/todo-tasks";
+            return "redirect:/all-todos-tasks";
         } catch (Exception e) {
             return "redirect:/error";
         }
@@ -45,7 +45,7 @@ public class TaskController {
         try {
             task.setId(id);
             taskService.updateTask(task);
-            return "redirect:/todo-tasks";
+            return "redirect:/task-info";
         } catch (Exception e) {
             return "redirect:/error";
         }
@@ -55,7 +55,7 @@ public class TaskController {
     public String deleteTask(@PathVariable("id") long id) {
         try {
             taskService.deleteTask(id);
-            return "redirect:/todo-tasks";
+            return "redirect:/all-todos-tasks";
         } catch (Exception e) {
             return "redirect:/not-found";
         }
@@ -65,14 +65,14 @@ public class TaskController {
     public String getAllTasks(Model model) {
         List<Task> tasks = taskService.getAllTasks();
         model.addAttribute("tasks", tasks);
-        return "todo-tasks";
+        return "all-todos-tasks";
     }
 
     @GetMapping("/todo/{todoId}")
     public String getByToDoId(@PathVariable long todoId, Model model) {
         List<Task> tasks = taskService.getByToDoId(todoId);
         model.addAttribute("tasks", tasks);
-        return "todo-tasks";
+        return "task-info";
     }
 }
 

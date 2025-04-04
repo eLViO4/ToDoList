@@ -27,7 +27,7 @@ public class ToDo {
     private String title;
 
     @Column(name = "created_at")
-    private LocalDateTime createdAt=LocalDateTime.now();
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     @ManyToOne
     @JoinColumn(name = "owner_id")

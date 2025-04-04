@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +7,16 @@
 </head>
 <body>
 <h1>Task Info</h1>
-<p>Name: ${task.name}</p>
-<p>Description: ${task.description}</p>
-<p>Priority: ${task.priority}</p>
-<a href="/task/{task.id}/update">Update</a>
-<form action="/task/{task.id}/delete" method="post">
-    <input type="hidden" name="_method" value="DELETE">
-    <button type="submit">Delete Task</button>
-</form>
+<p>Name: <span th:text="${task.name}"></span></p>
+<p>Priority: <span th:text="${task.priority}"></span></p>
+
+<a th:href="@{/task/{id}/update(id=${task.id})}">
+    <button type="button">Update Task</button>
+</a>
+
+<a th:href="@{/task/{id}/delete(id=${task.id})}"><br><br>
+    <button type="button">Delete Task</button>
+</a>
+
 </body>
 </html>

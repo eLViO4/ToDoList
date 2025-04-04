@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Info</title>
 </head>
 <body>
-<h1>User Info</h1>
-<p>Name: ${user.name}</p>
-<p>Email: ${user.email}</p>
-<a href="/user/{id}/update">Update</a>
-<form action="/user/{id}/delete" method="post">
-    <input type="hidden" name="_method" value="DELETE">
-    <button type="submit">Delete User</button>
-</form>
+<p>FirstName: <span th:text="${user.firstname}"></span></p>
+<p>LastName: <span th:text="${user.lastname}"></span></p>
+<p>Email: <span th:text="${user.email}"></span></p>
+
+<a th:href="@{/user/{id}/update(id=${user.id})}">
+    <button type="button">Update User</button>
+</a>
+<a th:href="@{/user/{id}/delete(id=${user.id})}"><br><br>
+    <button type="button">Delete User</button>
+</a>
+
 </body>
 </html>
